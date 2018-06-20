@@ -25,9 +25,9 @@ import javax.swing.table.DefaultTableModel;
 
 
 public class Consulta extends JFrame{
-    public JLabel lblNombre, lblMarca, lblStock, lblExistencia;
+    public JLabel lblNombre, lblDirector, lblMarca, lblStock, lblExistencia;
     
-    public JTextField nombre, descripcion, stock;
+    public JTextField nombre, director, descripcion, stock;
     public JComboBox marca;
     
     ButtonGroup existencia = new ButtonGroup();
@@ -37,7 +37,7 @@ public class Consulta extends JFrame{
     
     public JPanel table;
     
-    public JButton buscar, actualizar, insertar, limpiar, eliminar;
+    public JButton actualizar, insertar, limpiar, eliminar;
     
     private static final int ANCHOC = 130, ALTOC = 30;
     
@@ -54,23 +54,23 @@ public class Consulta extends JFrame{
         container.add(lblMarca);
         container.add(lblExistencia);
         container.add(nombre);
+        container.add(director);
         container.add(marca);
         container.add(stock);
         container.add(si);
         container.add(no);
-        container.add(buscar);
         container.add(insertar);
         container.add(actualizar);
         container.add(eliminar);
         container.add(limpiar);
         container.add(table);
-        setSize(600,600);
+        setSize(800,500);
         eventos();
     }
     
     public final void agregarLabels(){
         lblNombre = new JLabel("Nombre");
-        lblMarca= new JLabel("Marca");
+        lblMarca= new JLabel("Director");
         lblStock = new JLabel("Stock");
         lblExistencia = new JLabel("Stock en tienda");
         lblNombre.setBounds(10, 10, ANCHOC, ALTOC);
@@ -82,16 +82,16 @@ public class Consulta extends JFrame{
     
     public final void formulario(){
         nombre = new JTextField();
+        director = new JTextField();
         marca = new JComboBox();
         stock = new JTextField();
         si = new JRadioButton("si",true);
         no = new JRadioButton("no");
         resultados = new JTable();
-        buscar = new JButton("Buscar");
         insertar = new JButton("Insertar");
         actualizar = new JButton("Actualizar");
         eliminar = new JButton("Eliminar");
-        limpiar = new JButton("Limpiar");
+        limpiar = new JButton("Buscar");
         
         table = new JPanel();
         //agregar elementos al combox marca
@@ -108,11 +108,12 @@ public class Consulta extends JFrame{
         existencia.add(no);
         
         nombre.setBounds(140, 10, ANCHOC, ALTOC);
-        marca.setBounds(140, 60, ANCHOC, ALTOC);
+        director.setBounds(140, 60, ANCHOC, ALTOC);
+        marca.setBounds(300, 10, ANCHOC, ALTOC);
         si.setBounds(140,140,50,ALTOC);
         no.setBounds(210,140,50,ALTOC);
         
-        buscar.setBounds(300, 10, ANCHOC,ALTOC);
+        
         insertar.setBounds(10, 210, ANCHOC,ALTOC);
         actualizar.setBounds(300, 210, ANCHOC,ALTOC);
         eliminar.setBounds(150, 210, ANCHOC,ALTOC);
@@ -147,14 +148,6 @@ public class Consulta extends JFrame{
                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
      
-    });
-    
-    buscar.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-       
     });
     
     limpiar.addActionListener(new ActionListener(){
