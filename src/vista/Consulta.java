@@ -25,10 +25,10 @@ import javax.swing.table.DefaultTableModel;
 
 
 public class Consulta extends JFrame{
-    public JLabel lblNombre, lblDirector, lblMarca, lblStock, lblExistencia;
+    public JLabel lblNombre, lblDirector, lblClasi, lblPais,lblStock, lblExistencia;
     
-    public JTextField nombre, director, descripcion, stock;
-    public JComboBox marca;
+    public JTextField nombre, director, pais, descripcion, stock;
+    public JComboBox clasif;
     
     ButtonGroup existencia = new ButtonGroup();
     public JRadioButton no;
@@ -39,7 +39,7 @@ public class Consulta extends JFrame{
     
     public JButton actualizar, insertar, limpiar, eliminar;
     
-    private static final int ANCHOC = 130, ALTOC = 30;
+    private static final int ANCHOC = 120, ALTOC = 20;
     
     DefaultTableModel tm;
     
@@ -51,11 +51,14 @@ public class Consulta extends JFrame{
         formulario();
         Container container = getContentPane();
         container.add(lblNombre);
-        container.add(lblMarca);
+        container.add(lblDirector);
+        container.add(lblPais);
+        container.add(lblClasi);
         container.add(lblExistencia);
         container.add(nombre);
         container.add(director);
-        container.add(marca);
+        container.add(pais);
+        container.add(clasif);
         container.add(stock);
         container.add(si);
         container.add(no);
@@ -69,12 +72,15 @@ public class Consulta extends JFrame{
     }
     
     public final void agregarLabels(){
-        lblNombre = new JLabel("Nombre");
-        lblMarca= new JLabel("Director");
+        lblNombre = new JLabel("Nombre:");
+        lblDirector= new JLabel("Director:");
+        lblPais= new JLabel("Pais:");
         lblStock = new JLabel("Stock");
         lblExistencia = new JLabel("Stock en tienda");
-        lblNombre.setBounds(10, 10, ANCHOC, ALTOC);
-        lblMarca.setBounds(10,60,ANCHOC,ALTOC);
+        lblNombre.setBounds(75, 10, ANCHOC, ALTOC);
+        lblDirector.setBounds(75,60,ANCHOC,ALTOC);
+        lblPais.setBounds(75,110,ANCHOC,ALTOC);
+        lblPais.setBounds(75,110,ANCHOC,ALTOC);
         lblStock.setBounds(10,100,ANCHOC,ALTOC);
         lblExistencia.setBounds(10,140,ANCHOC,ALTOC);
         
@@ -83,7 +89,8 @@ public class Consulta extends JFrame{
     public final void formulario(){
         nombre = new JTextField();
         director = new JTextField();
-        marca = new JComboBox();
+        pais = new JTextField();
+        clasif = new JComboBox();
         stock = new JTextField();
         si = new JRadioButton("si",true);
         no = new JRadioButton("no");
@@ -94,14 +101,16 @@ public class Consulta extends JFrame{
         limpiar = new JButton("Buscar");
         
         table = new JPanel();
+        
         //agregar elementos al combox marca
-        marca.addItem("Sin seleccion");
-        marca.addItem("G");
-        marca.addItem("PG");
-        marca.addItem("14A");
-        marca.addItem("18A");
-        marca.addItem("R");
-        marca.addItem("A");
+        clasif.addItem("Sin seleccion");
+        clasif.addItem("G");
+        clasif.addItem("PG");
+        clasif.addItem("14A");
+        clasif.addItem("18A");
+        clasif.addItem("R");
+        clasif.addItem("A");
+        
         //agregando los radio a un grupo
         existencia = new ButtonGroup();
         existencia.add(si);
@@ -109,7 +118,8 @@ public class Consulta extends JFrame{
         
         nombre.setBounds(140, 10, ANCHOC, ALTOC);
         director.setBounds(140, 60, ANCHOC, ALTOC);
-        marca.setBounds(300, 10, ANCHOC, ALTOC);
+        pais.setBounds(140, 110, ANCHOC, ALTOC);
+        clasif.setBounds(500, 10, ANCHOC, ALTOC);
         si.setBounds(140,140,50,ALTOC);
         no.setBounds(210,140,50,ALTOC);
         
@@ -160,7 +170,7 @@ public class Consulta extends JFrame{
     }
     public void limpiarCampos(){
         nombre.setText("");
-        marca.setSelectedItem("FRAM");
+        clasif.setSelectedItem("FRAM");
         stock.setText("");
     }
     
