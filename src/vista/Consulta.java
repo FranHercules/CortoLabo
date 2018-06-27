@@ -78,10 +78,10 @@ public class Consulta extends JFrame{
         lblDirector = new JLabel("Director");
         lblPais = new JLabel("Pais");
         lblExistencia = new JLabel("En existencia");
-        lblNombre.setBounds(10,10,ANCHOC, ALTOC);
+        lblNombre.setBounds(40,10,ANCHOC, ALTOC);
         lblAnnio.setBounds(300,60,ANCHOC, ALTOC);
-        lblDirector.setBounds(10,60,ANCHOC, ALTOC);
-        lblPais.setBounds(10, 100, ANCHOC, ALTOC);
+        lblDirector.setBounds(40,60,ANCHOC, ALTOC);
+        lblPais.setBounds(65, 110, ANCHOC, ALTOC);
         lblClasificacion.setBounds(300, 10, ANCHOC, ALTOC);
         lblExistencia.setBounds(300, 100, ANCHOC, ALTOC);
     }
@@ -123,7 +123,7 @@ public class Consulta extends JFrame{
         limpiar.setBounds(4500, 210, ANCHOC, ALTOC);
         clasificacion.setBounds(400, 10, ANCHOC, ALTOC);
         director.setBounds(100, 60, ANCHOC, ALTOC);
-        pais.setBounds(100, 100, ANCHOC, ALTOC);
+        pais.setBounds(100, 110, ANCHOC, ALTOC);
         annioT.setBounds(350, 60, ANCHOC, ALTOC);
         //G.setBounds(WIDTH, WIDTH, WIDTH, HEIGHT);
         si.setBounds(400, 100, 50, ALTOC);
@@ -199,7 +199,7 @@ public class Consulta extends JFrame{
                 if(no.isSelected()){
                     f.setExistencia(false);
                 }
-                if(fd.create(f)){
+                if(fd.update(f)){
                     JOptionPane.showMessageDialog(null, "Filtro modificado con exito.");
                     limpiarCampos();
                     llenarTabla();

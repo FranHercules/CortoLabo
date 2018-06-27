@@ -11,11 +11,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Pelis;
 
-
+/**
+ *
+ * @author Jorge Orellana <00103717@uca.edu.sv>
+ */
 public class PelisDao implements Metodos<Pelis> {
-    private static final String SQL_INSERT = "INSERT INTO movie(nombre,director,pais,clasificacion,annio,existencia) "
-            + "VALUES(?,?,?,?,?)";
-    private static final String SQL_UPDATE = "UPDATE movie SET director = ?,pais = ?,clasificacion = ?,annio = ?,existencia = ? "
+    private static final String SQL_INSERT = "INSERT INTO movie(nombre,director,pais,clasificacion,anio,en_proyeccion) "
+            + "VALUES(?,?,?,?,?,?)";
+    private static final String SQL_UPDATE = "UPDATE movie SET director = ?,pais = ?,clasificacion = ?,anio = ?,en_proyeccion = ? "
             + "WHERE nombre=?";
     private static final String SQL_DELETE = "DELETE FROM movie WHERE nombre=?";
     private static final String SQL_READ = "SELECT * FROM movie WHERE nombre=?";
